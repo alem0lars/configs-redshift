@@ -33,10 +33,10 @@
 <% define_locals do
   variable :"redshift.temperature.day", type: :int, as: :temperature_day
   variable :"redshift.temperature.night", type: :int, as: :temperature_night
-  variable :"redshift.brightness.day", type: :float, as: :brightness_day
-  variable :"redshift.brightness.night", type: :float, as: :brightness_night
-  variable :"redshift.gamma.day", type: :float, as: :gamma_day
-  variable :"redshift.gamma.night", type: :float, as: :gamma_night
+  variable :"redshift.brightness.day", as: :brightness_day # TODO missing double
+  variable :"redshift.brightness.night", as: :brightness_night # TODO missing double
+  variable :"redshift.gamma.day", as: :gamma_day # TODO missing double
+  variable :"redshift.gamma.night", as: :gamma_night # TODO missing double
 end %>
 # ─────────────────────────────────────────────────────────────────────────────┘
 

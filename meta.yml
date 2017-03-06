@@ -1,0 +1,8 @@
+elems:
+
+  - src:  ^(redshift\.conf)$
+    dst:  ~/.config/<1>
+    only: f?redshift
+
+
+# vim: set filetype=eruby.yaml :
