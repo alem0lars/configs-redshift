@@ -7,7 +7,7 @@ redshift:
     night: 3000
   brightness:
     day: 0.9
-    night: 0.8
+    night: 0.9
   gamma:
     day: 0.8:0.8:0.8
     night: 0.7:0.7:0.7
