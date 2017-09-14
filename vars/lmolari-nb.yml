@@ -1,0 +1,16 @@
+# => inherits: generic <= #
+
+
+redshift:
+  temperature:
+    day: 5800
+    night: 4900
+  brightness:
+    day: 1.0
+    night: 0.9
+  gamma:
+    day: 0.9:0.9:0.9
+    night: 0.8:0.8:0.8
+
+
+# vim: set filetype=eruby.yaml :
