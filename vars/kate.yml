@@ -3,7 +3,7 @@
 
 redshift:
   temperature:
-    day: 4400
+    day: 4000
     night: 3000
   brightness:
     day: 0.9
