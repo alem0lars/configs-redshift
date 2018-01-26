@@ -14,29 +14,37 @@
 <%#                                                                         │ %>
 <%# ────────────────────────────────────────────────────────────────────────┤ %>
 <%#                                                                         │ %>
-<%# Licensed to the Apache Software Foundation (ASF) under one more contributor │ %>
-<%# license agreements.  See the NOTICE file distributed with this work for     │ %>
-<%# additional information regarding copyright ownership. The ASF licenses this │ %>
-<%# file to you under the Apache License, Version 2.0 (the "License"); you may  │ %>
-<%# not use this file except in compliance with the License.                │ %>
+<%# Licensed to the Apache Software Foundation (ASF) under one more         │ %>
+<%# contributor license agreements. See the NOTICE file distributed with    │ %>
+<%# this work for additional information regarding copyright ownership.     │ %>
+<%# The ASF licenses this file to you under the Apache License, Version 2.0 │ %>
+<%# (the "License"); you may not use this file except in compliance with    │ %>
+<%# the License.                                                            │ %>
 <%# You may obtain a copy of the License at                                 │ %>
 <%#                                                                         │ %>
 <%#   http://www.apache.org/licenses/LICENSE-2.0                            │ %>
 <%#                                                                         │ %>
 <%# Unless required by applicable law or agreed to in writing, software     │ %>
-<%# distributed under the License is distributed on an "AS IS" BASIS, WITHOUT │ %>
-<%# WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.        │ %>
+<%# distributed under the License is distributed on an "AS IS" BASIS,       │ %>
+<%# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or         │ %>
+<%# implied.                                                                │ %>
 <%# See the License for the specific language governing permissions and     │ %>
 <%# limitations under the License.                                          │ %>
 <%#                                                                         │ %>
 <%# ────────────────────────────────────────────────────────────────────────┤ %>
 <% define_locals do
-  variable :"redshift.temperature.day", type: :int, as: :temperature_day
-  variable :"redshift.temperature.night", type: :int, as: :temperature_night
-  variable :"redshift.brightness.day", as: :brightness_day # TODO missing double
-  variable :"redshift.brightness.night", as: :brightness_night # TODO missing double
-  variable :"redshift.gamma.day", as: :gamma_day # TODO missing double
-  variable :"redshift.gamma.night", as: :gamma_night # TODO missing double
+  variable "redshift.location.provider",  as: :location_provider
+  variable "redshift.location.latitude",  as: :location_latitude
+  variable "redshift.location.longitude", as: :location_longitude
+
+  variable "redshift.temperature.day",   type: :int, as: :temperature_day
+  variable "redshift.temperature.night", type: :int, as: :temperature_night
+
+  variable "redshift.brightness.day",   as: :brightness_day
+  variable "redshift.brightness.night", as: :brightness_night
+
+  variable "redshift.gamma.day",   as: :gamma_day
+  variable "redshift.gamma.night", as: :gamma_night
 end %>
 <%# ────────────────────────────────────────────────────────────────────────┘ %>
 
@@ -54,9 +62,16 @@ gamma-night=<%= local! :gamma_night %>
 
 transition=1
 
-location-provider=geoclue2
+location-provider=<%= local! :location_provider %>
 
 adjustment-method=randr
+
+<% if local!(:location_provider) == "manual" %>
+[manual]
+
+lat=<%= local! :location_longitude %>
+lon=<%= local! :location_latitude %>
+<% end %>
 
 
 <%# vim: set filetype=eruby.conf : %>
