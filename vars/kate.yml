@@ -3,7 +3,7 @@
 
 redshift:
   location:
-    provider:  manual
+    provider:  geoclue2
     longitude: 12.279421
     latitude:  44.173317
   temperature:
