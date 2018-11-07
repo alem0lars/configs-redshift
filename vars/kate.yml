@@ -11,10 +11,10 @@ redshift:
     night: 3000
   brightness:
     day:   1.0
-    night: 0.9
+    night: 1.0
   gamma:
     day:   0.9:0.9:0.9
-    night: 0.7:0.7:0.7
+    night: 0.9:0.9:0.9
 
 
 # vim: set filetype=eruby.yaml :
